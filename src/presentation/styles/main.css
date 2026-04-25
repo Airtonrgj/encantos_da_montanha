@@ -5,19 +5,44 @@
     box-sizing: border-box;
 }
 
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  :root {
+    --cream: #F2EDE3;
+    --cream-dark: #E8E0D0;
+    --dark-green: #2A3D2A;
+    --mid-green: #3D5C35;
+    --light-green: #6B8C5A;
+    --brown: #5C3A1E;
+    --amber: #C8973A;
+    --amber-light: #D4A84B;
+    --dark-brown: #3B2712;
+    --text-dark: #2C2318;
+    --text-mid: #5A4A3A;
+    --text-light: #8A7A6A;
+    --white: #FFFFFF;
+    --card-bg: #FAFAF7;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+  
 /* Navbar */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 60px;
-    background-color: #F0E8D5;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: sticky; top: 0; z-index: 100;
+    padding: 0 48px;
+    background-color: var(--cream-dark);
+    border-bottom: 1px solid rgba(90,74,58,0.12);
+    font-family: var(--sans);
 }
 
 .nav-logo img{
     height: 80px;
     width: auto;
+    
 }
 
 .nav-menu {
@@ -31,7 +56,7 @@ nav {
 
 .nav-menu a {
     text-decoration: none;
-    color: #3b2f25;
+    color: var(--text-dark);
     font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -50,13 +75,13 @@ nav {
 
 .weather::before {
     content: "●";
-    color: #4caf50;
+    color: var(--light-green);
     margin-right: 6px;
 }
 
 .btn-reservar {
-    background-color: #3b2f25;
-    color: #fff;
+    background-color: var(--dark-brown);
+    color: var(--white);
     padding: 10px 18px;
     text-decoration: none;
     font-size: 12px;
@@ -66,20 +91,24 @@ nav {
 }
 
 .btn-reservar:hover {
-    background-color: #2a2119;
+    background-color: var(--text-dark);
 }
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: calc(100vh - 80px);
+    min-height: 500px;
     background-image: url("/src/assets/serra_das_veredas.jpg");
+    overflow: hidden;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute; 
+    inset: 0;
+    background: linear-gradient(to right, rgba(20,30,20,0.62) 0%, rgba(20,30,20,0.25) 60%, rgba(20,30,20,0.05) 100%);
     height: 100%;
     display: flex;
     align-items: center;
@@ -87,10 +116,24 @@ nav {
 }
 
 .hero-content {
+    position: absolute; bottom: 80px; left: 80px; max-width: 600px;
     text-align: center;
-    color: #fff;
-    max-width: 600px;
+    color: var(--white);
 }
+
+  .hero-breadcrumb { font-size: 12px; color: rgba(255,255,255,0.75); letter-spacing: 0.08em; margin-bottom: 20px; }
+  .hero-breadcrumb span { opacity: 0.6; margin: 0 6px; }
+  .hero-title { font-family: var(--serif); font-size: clamp(52px, 6vw, 80px); line-height: 1.1; color: var(--white); font-weight: 300; margin-bottom: 20px; }
+  .hero-title .italic { font-style: italic; color: var(--amber); }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 440px; margin-bottom: 32px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-outline-white {
+    border: 1.5px solid rgba(255,255,255,0.75); color: var(--white);
+    background: transparent; font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 22px;
+    cursor: pointer; text-decoration: none; transition: all .2s;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: white; }
 
 .hero-content h1 {
     font-size: 48px;
@@ -104,8 +147,8 @@ nav {
 
 
 .btn-hero {
-    background-color: #3b2f25;
-    color: #fff;
+    background-color: var(--dark-brown);
+    color: var(--white);
     padding: 12px 24px;
     text-decoration: none;
     text-transform: uppercase;
@@ -114,5 +157,5 @@ nav {
 }
 
 .btn-hero:hover {
-    background-color: #2a2119;
+    background-color: var(--text-dark);
 }
