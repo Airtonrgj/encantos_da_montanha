@@ -249,3 +249,40 @@ nav {
     text-transform: uppercase; padding: 10px 18px;
     border: 1.5px solid #aaa; background: transparent; color: #aaa; cursor: not-allowed;
   }
+
+  /* Experiências */
+    .section-experiences {
+    background: linear-gradient(120deg, #2a3d2a 0%, #3d5c35 40%, #6b8c5a 75%, #8aad70 100%);
+    padding: 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .exp-text .pill-badge { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.75); }
+  .exp-text h2 { font-family: var(--serif); font-size: clamp(32px,3.5vw,48px); line-height: 1.2; font-weight: 400; color: white; margin-bottom: 20px; }
+  .exp-text p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 32px; }
+  .btn-exp {
+    display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 13px 20px;
+    border: 1.5px solid rgba(255,255,255,0.6); color: white; text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-exp:hover { background: rgba(255,255,255,0.15); }
+  .exp-carousel { position: relative; }
+  .exp-carousel-img {
+    width: 100%; aspect-ratio: 4/3;
+    background: repeating-linear-gradient(
+      45deg, #ccc 0, #ccc 10px, #fff 10px, #fff 20px
+    );
+    border-radius: 2px;
+  }
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 40px; height: 40px; background: rgba(255,255,255,0.2); border: 1.5px solid rgba(255,255,255,0.5);
+    color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .carousel-btn:hover { background: rgba(255,255,255,0.35); }
+  .carousel-prev { left: -20px; }
+  .carousel-next { right: -20px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .carousel-dot { width: 20px; height: 3px; background: rgba(255,255,255,0.35); border-radius: 2px; cursor: pointer; transition: background .2s; }
+  .carousel-dot.active { background: rgba(255,255,255,0.9); }
