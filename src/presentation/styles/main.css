@@ -159,3 +159,93 @@ nav {
 .btn-hero:hover {
     background-color: var(--text-dark);
 }
+
+/* ─── Sobre nós utilitários ─── */
+  .section { padding: 96px 80px; }
+  .section-cream { background: var(--cream); }
+  .pill-badge {
+    display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-mid);
+    border: 1px solid rgba(90,74,58,0.3); padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .section-title { font-family: var(--serif); font-size: clamp(36px, 4vw, 52px); line-height: 1.2; font-weight: 400; color: var(--text-dark); }
+  .section-title .italic { font-style: italic; }
+  .section-sub { font-size: 14px; color: var(--text-light); line-height: 1.75; max-width: 540px; margin-top: 16px; }
+
+  /* ─── Sobre nós ─── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px;
+    background: linear-gradient(135deg, #c47a3a 0%, #8B6230 40%, #5a7a4a 70%, #2a3d28 100%);
+    position: relative; overflow: hidden;
+  }
+  .about-img-scene {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #d4823a 0%, #c47a3a 25%, #8B6230 45%, #5a8040 65%, #3d6030 80%, #2a4020 100%);
+    position: relative;
+  }
+  .about-img-scene::before {
+    content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%;
+    background: linear-gradient(180deg, #87ceeb 0%, #a8d5e8 20%, #7aab6a 35%, #3d6030 70%, #2a3d20 100%);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .about-text .pill-badge { margin-bottom: 16px; }
+  .about-text h2 { font-family: var(--serif); font-size: clamp(32px,3.5vw,48px); line-height: 1.2; font-weight: 400; margin-bottom: 24px; }
+  .about-text p { font-size: 14.5px; line-height: 1.8; color: var(--text-mid); margin-bottom: 16px; }
+
+  /* Acomodações */
+
+  .section-accommodations { background: var(--cream); padding: 80px 80px; }
+  .acc-header { margin-bottom: 48px; }
+  .acc-title { font-family: var(--serif); font-size: clamp(36px,4vw,52px); line-height: 1.2; font-weight: 400; }
+  .acc-title .italic { font-style: italic; }
+  .acc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .suite-card {
+    background: var(--card-bg); border: 1px solid rgba(90,74,58,0.1);
+    border-radius: 2px; overflow: hidden; transition: transform .25s, box-shadow .25s;
+  }
+  .suite-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(60,40,20,0.12); }
+  .suite-img {
+    width: 100%; height: 180px; position: relative; display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,0.7); letter-spacing: 0.04em;
+  }
+  .suite-img-1 { background: linear-gradient(135deg, #4a2e15 0%, #6b4226 50%, #8B6230 100%); }
+  .suite-img-2 { background: linear-gradient(135deg, #7a8a7a 0%, #9aaa9a 50%, #aabcaa 100%); }
+  .suite-img-3 { background: linear-gradient(135deg, #6b5a40 0%, #8B7A60 50%, #a09070 100%); }
+  .suite-img-4 { background: linear-gradient(135deg, #2a4020 0%, #3d6030 50%, #4a7040 100%); }
+  .suite-img-5 { background: linear-gradient(135deg, #7a6030 0%, #c08040 50%, #d4a060 100%); }
+  .suite-img-6 { background: linear-gradient(135deg, #3a2a18 0%, #5c3a1e 50%, #7a5030 100%); }
+  .status-badge {
+    position: absolute; top: 12px; right: 12px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 3px;
+  }
+  .badge-disponivel { background: #2A4A2A; color: #7dd87d; }
+  .badge-reservado { background: #4A3A2A; color: #d4a84b; }
+  .badge-ultimas { background: #7a4a2a; color: #f0c080; }
+  .badge-esgotado { background: #3a2a2a; color: #d07070; }
+  .suite-body { padding: 20px 20px 24px; }
+  .suite-name { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 8px; color: var(--text-dark); }
+  .suite-desc { font-size: 12.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; }
+  .suite-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .suite-tag {
+    font-size: 10.5px; color: var(--text-mid); border: 1px solid rgba(90,74,58,0.25);
+    padding: 3px 10px; border-radius: 20px; background: transparent;
+  }
+  .suite-footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .suite-price { font-family: var(--serif); }
+  .suite-price .value { font-size: 22px; font-weight: 500; color: var(--text-dark); }
+  .suite-price .per { font-size: 11px; color: var(--text-light); display: block; }
+  .btn-reservar-card {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 10px 18px;
+    border: 1.5px solid var(--text-dark); background: transparent; color: var(--text-dark);
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-reservar-card:hover { background: var(--text-dark); color: white; }
+  .btn-esgotado {
+    font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 10px 18px;
+    border: 1.5px solid #aaa; background: transparent; color: #aaa; cursor: not-allowed;
+  }
