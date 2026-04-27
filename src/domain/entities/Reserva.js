@@ -1,5 +1,6 @@
 import { differenceInDays } from 'date-fns'
 
+
 class Reservas{
     constructor(Cliente, Suite, PeriodoStadia, status){
         this.Cliente = Cliente
@@ -15,7 +16,7 @@ class Reservas{
     }
 
     calcularPreco(){
-        return this.calcularNoites() * this.Suite.PrecoDiaria
+        return this.calcularNoites() * this.Suite.precoDiaria
     }
 
     reservar(){
@@ -27,3 +28,5 @@ class Reservas{
     }
 
 }
+
+export default Reservas;

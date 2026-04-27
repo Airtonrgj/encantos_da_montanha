@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Airtonrgj/encantos_da_montanha/issues"
   },
-  "homepage": "https://github.com/Airtonrgj/encantos_da_montanha#readme"
+  "homepage": "https://github.com/Airtonrgj/encantos_da_montanha#readme",
+  "dependencies": {
+    "date-fns": "^4.1.0"
+  }
 }
