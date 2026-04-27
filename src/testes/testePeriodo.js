@@ -6,7 +6,7 @@ function testarPeriodo(){
     console.log("teste 1...")
     try{
         const periodo = new PeriodoStadia(
-            "2026-05-10",
+            "2026-05-05",
             "2026-05-15"
         )
         console.log("cadastro criado com sucesso")

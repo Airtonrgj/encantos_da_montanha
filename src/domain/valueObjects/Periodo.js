@@ -6,7 +6,7 @@ class PeriodoStadia{
     constructor(checkin, checkout){
         const dataCheckin = new Date(checkin + "T12:00:00")
         const dataCheckout = new Date(checkout + "T12:00:00")
-       if (checkin > checkout){
+       if (dataCheckin > dataCheckout){
         throw new Error("a data de chekin não pode ser superior a data de chekout")
        }
        /* salva as variavei se as datas passarem */
