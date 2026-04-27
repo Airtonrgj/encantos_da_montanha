@@ -15,23 +15,23 @@ function salvarReserva(reserva){
 
 function buscarReservaPorId(id){
     const lista = listarReservas() //pega todas as reservas
-    return lista.find(s => s.id === id) //procura e devolve
+    return lista.find(r => r.id === id) //procura e devolve
 }
 
 
 function atualizarReserva(reservaAtualizada){
     const lista = listarReservas() // pega a lista existente
-      const novaLista = lista.map(s => {              
-        if (s.id === reservaAtualizada.id) // se achar
+      const novaLista = lista.map(r => {              
+        if (r.id === reservaAtualizada.id) // se achar
           return reservaAtualizada // retorna a versão nova
-        return s //caso não ache, retorna a atual
+        return r //caso não ache, retorna a atual
       })
       localStorage.setItem(CHAVE, JSON.stringify(novaLista)) // salva tudo
 }
 
 function deletarReserva(id) {
   const lista = listarReservas()                 // pega a lista atual
-  const novaLista = lista.filter(s => s.id !== id) // remove a do id
+  const novaLista = lista.filter(r => r.id !== id) // remove a do id
   localStorage.setItem(CHAVE, JSON.stringify(novaLista)) // salva sem ela
 }
 
