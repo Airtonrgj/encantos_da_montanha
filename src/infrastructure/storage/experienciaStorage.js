@@ -1,4 +1,4 @@
-const = CHAVE = 'experiencias'
+const  CHAVE = 'experiencias'
 
 function listarExperiencias(){
     const texto = localStorage.getItem(CHAVE)

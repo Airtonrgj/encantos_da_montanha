@@ -1,6 +1,5 @@
 import PeriodoStadia from '../domain/valueObjects/Periodo.js';
-
-import { Reservas } from '../domain/entities/Reserva.js';
+import Reservas from '../domain/entities/Reserva.js';
 
 function testeReserva(){
     const minhaSuite = { precoDiaria: 500}
