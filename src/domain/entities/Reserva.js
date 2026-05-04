@@ -1,12 +1,9 @@
-import { differenceInDays } from 'date-fns'
-
-
 class Reservas{
-    constructor(Cliente, Suite, PeriodoStadia, status){
+    constructor(Cliente, Suite, PeriodoStadia, status = "pendente"){
         this.Cliente = Cliente
         this.Suite = Suite
         this.PeriodoStadia = PeriodoStadia
-        this.status = "pendente"
+        this.status = status
     }
 
     calcularNoites(){
