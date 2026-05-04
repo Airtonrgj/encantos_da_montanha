@@ -10,3 +10,5 @@ class Suite{
         this.comodidades = comodidades /* não achei palavra melhor, é basicamente um array de elementos que tem no quarto tipo, hidro, cama de casal, cama de solteiro, etc... */
     }
 }
+
+export default Suite
