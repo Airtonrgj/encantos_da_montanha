@@ -6,8 +6,11 @@ const DATABASE_CONFIG = {
         experiencias: "experiencias",
         reservas: "reservas",
         suites:  "suites"
+
     },
     versao: 1
 }
+
+
 
 export default DATABASE_CONFIG
