@@ -1,9 +1,5 @@
 import PeriodoStadia from "../domain/valueObjects/Periodo.js";
 function testarPeriodo(){
-    console.log("iniciando o teste")
-
-    /* primeiro teste: período válido */
-    console.log("teste 1...")
     try{
         const periodo = new PeriodoStadia(
             "2026-05-05",
