@@ -22,6 +22,7 @@ class SuiteRepository{
         return buscaReidratadaID
     }
 
+    /* essas não retornam nada, so salvam ou deletam então não precisão de reidratação */
     salvarSuite(suite){
         salvarSuite(suite)
     }
