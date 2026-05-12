@@ -23,15 +23,15 @@ class SuiteRepository{
     }
 
     /* essas não retornam nada, so salvam ou deletam então não precisão de reidratação */
-    salvarSuite(suite){
+    salvaSuite(suite){
         salvarSuite(suite)
     }
 
-    atualizarSuite(suiteAtualizada){
+    atualizaSuite(suiteAtualizada){
         atualizarSuite(suiteAtualizada)
     }
 
-    deletarSuite(id){
+    deletaSuite(id){
         deletarSuite(id)
     }
 
