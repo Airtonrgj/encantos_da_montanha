@@ -209,6 +209,14 @@ nav {
   .suite-img {
     width: 100%; height: 180px; position: relative; display: flex; align-items: center; justify-content: center;
     font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,0.7); letter-spacing: 0.04em;
+    overflow: hidden;
+  }
+
+  .suite-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .suite-img-1 { background: linear-gradient(135deg, #4a2e15 0%, #6b4226 50%, #8B6230 100%); }
   .suite-img-2 { background: linear-gradient(135deg, #7a8a7a 0%, #9aaa9a 50%, #aabcaa 100%); }
@@ -269,9 +277,6 @@ nav {
   .exp-carousel { position: relative; }
   .exp-carousel-img {
     width: 100%; aspect-ratio: 4/3;
-    background: repeating-linear-gradient(
-      45deg, #ccc 0, #ccc 10px, #fff 10px, #fff 20px
-    );
     border-radius: 2px;
   }
   .carousel-btn {
