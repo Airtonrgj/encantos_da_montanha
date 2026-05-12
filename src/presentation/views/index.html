@@ -50,7 +50,7 @@
     <section id="sobre" class="section section-cream">
         <div class="about-grid">
                 <div class="about-image">
-                    <img src="#" alt="Imagem área externa pousada" style="aspect-ratio:4/3;">
+                    <img src="/src/assets/foto-externa-pousada.jpg" alt="Imagem área externa pousada" style="aspect-ratio:4/3;">
                 </div>
                 
                 <div class="about-text">
@@ -72,7 +72,7 @@
         <!-- Card 1 -->
         <div class="suite-card">
           <div class="suite-img suite-img-1">
-            <span>Vista do Vale</span>
+            <img src="/src/assets/suite-vento-sul.jpeg" alt="Suíte Vento do Sul">
             <div class="status-badge badge-disponivel">Disponível</div>
           </div>
           <div class="suite-body">
@@ -97,7 +97,7 @@
         <!-- Card 2 -->
         <div class="suite-card">
           <div class="suite-img suite-img-2">
-            <span>Ambiente de Serena</span>
+            <img src="/src/assets/suite-serra-branca.jpeg" alt="Suíte Serra Branca">
             <div class="status-badge badge-disponivel">Disponível</div>
           </div>
           <div class="suite-body">
@@ -122,7 +122,7 @@
         <!-- Card 3 -->
         <div class="suite-card">
           <div class="suite-img suite-img-3">
-            <span>Amanece Bruta</span>
+            <img src="/src/assets/suite-pedra-viva.jpeg" alt="Suíte Pedra Viva">
             <div class="status-badge badge-esgotado">Esgotado</div>
           </div>
           <div class="suite-body">
@@ -147,7 +147,7 @@
         <!-- Card 4 -->
         <div class="suite-card">
           <div class="suite-img suite-img-4">
-            <span>Eco do Vale</span>
+            <img src="/src/assets/suite-lua-cheia.jpeg" alt="Suíte Lua Cheia">
             <div class="status-badge badge-disponivel">Disponível</div>
           </div>
           <div class="suite-body">
@@ -172,7 +172,7 @@
         <!-- Card 5 -->
         <div class="suite-card">
           <div class="suite-img suite-img-5">
-            <span>Buritis no Cerrado</span>
+            <img src="/src/assets/suite-buritis.jpeg" alt="Suíte Buritis">
             <div class="status-badge badge-reservado">Reservado</div>
           </div>
           <div class="suite-body">
@@ -197,7 +197,7 @@
         <!-- Card 6 -->
         <div class="suite-card">
           <div class="suite-img suite-img-6">
-            <span>Charme Intímico</span>
+            <img src="/src/assets/suite-candeeiro.jpeg" alt="Suíte Candeeiro">
             <div class="status-badge badge-ultimas">Últimas Vagas</div>
           </div>
           <div class="suite-body">
@@ -230,36 +230,61 @@
                 <a href="#" class="btn-exp">Nossas Experiências →</a>
         </div>
         <div class="exp-carousel">
-            <div class="exp-carousel-img"></div>
-                <button class="carousel-btn carousel-prev">‹</button>
-                <button class="carousel-btn carousel-next">›</button>
-                    <div class="carousel-dots">
-                    <div class="carousel-dot active"></div>
-                    <div class="carousel-dot"></div>
-                    <div class="carousel-dot"></div>
-                    <div class="carousel-dot"></div>
-                    <div class="carousel-dot"></div>
+            <div class="exp-carousel-img">
+              <img id="carousel-main-img" src="/src/assets/turista-serra.webp" alt="Turista admirando a serra" style="width:100%;height:100%;object-fit:cover;">
+              <img class="carousel-img-extra" src="/src/assets/voo-livre-serra.jpg" alt="Voo livre sobre a serra" style="display:none;width:100%;height:100%;object-fit:cover;">
+              <img class="carousel-img-extra" src="/src/assets/passeio-biclicleta.jpg" alt="Passeio de bicicleta" style="display:none;width:100%;height:100%;object-fit:cover;">
+              <img class="carousel-img-extra" src="/src/assets/fogueira.jpg" alt="Fogueira" style="display:none;width:100%;height:100%;object-fit:cover;">
+              <img class="carousel-img-extra" src="/src/assets/turista-serra.webp" alt="Turista admirando a serra" style="display:none;width:100%;height:100%;object-fit:cover;">
+            </div>
+            <button class="carousel-btn carousel-prev">‹</button>
+            <button class="carousel-btn carousel-next">›</button>
+            <div class="carousel-dots">
+              <div class="carousel-dot active" data-img="/src/assets/turista-serra.webp" data-alt="Turista admirando a serra"></div>
+              <div class="carousel-dot" data-img="/src/assets/voo-livre-serra.jpg" data-alt="Voo livre sobre a serra"></div>
+              <div class="carousel-dot" data-img="/src/assets/passeio-biclicleta.jpg" data-alt="Passeio de bicicleta"></div>
+              <div class="carousel-dot" data-img="/src/assets/fogueira.jpg" data-alt="Fogueira"></div>
+              <div class="carousel-dot" data-img="/src/assets/turista-serra.webp" data-alt="Turista admirando a serra"></div>
             </div>
         </div>
     </section>
 
-    <!-- Galeria de imagens -->
     <section class="section-gallery" id="galeria">
         <div class="gallery-header">
             <div class="pill-badge">Do Céu à Terra</div>
                 <h2>Experiências que ficam na <span style="font-style:italic">memória</span></h2>
                 <p>Explore imagens que revelam a essência da pousada: o charme das suítes, os espaços de convivência e a beleza natural ao redor.</p>
         </div>
+
+        <!-- Adicionar imagens gerais da pousada -->
         <div class="gallery-mosaic">
             <div class="gallery-item gallery-item-large"><div class="gallery-img g1" style="height:100%;"></div></div>
-            <div class="gallery-item"><div class="gallery-img g2" style="height:100%;"></div></div>
-            <div class="gallery-item"><div class="gallery-img g3" style="height:100%;"></div></div>
-            <div class="gallery-item"><div class="gallery-img g4" style="height:100%;"></div></div>
-            <div class="gallery-item"><div class="gallery-img g5" style="height:100%;"></div></div>
+            <div class="gallery-item">
+              <div style="height:100%;">
+                <img src="" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <div style="height:100%;">
+                <img src="" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <div style="height:100%;">
+                <img src="" alt="" srcset="">
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <div style="height:100%;">
+                  <img src="" alt="" srcset="">
+              </div>
+            </div>
         </div>
     </section>
 
-    <!-- ─── Reviews ─── -->
     <section class="section-reviews">
         <div class="reviews-track-wrapper">
             <div class="reviews-track">
@@ -362,20 +387,31 @@
       <div class="footer-bottom">Direitos reservados</div>
     </footer>
 
+    <script type="module" src="../scripts/clima.js"></script>
     <script>
       const dots = document.querySelectorAll('.carousel-dot');
+      const mainImg = document.getElementById('carousel-main-img');
+      let current = 0;
+
+      function updateCarousel(index) {
+        dots.forEach(d => d.classList.remove('active'));
+        dots[index].classList.add('active');
+        const imgSrc = dots[index].getAttribute('data-img');
+        const imgAlt = dots[index].getAttribute('data-alt');
+        mainImg.src = imgSrc;
+        mainImg.alt = imgAlt;
+      }
+
       dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
-          dots.forEach(d => d.classList.remove('active'));
-          dot.classList.add('active');
+          current = i;
+          updateCarousel(current);
         });
       });
 
-      let current = 0;
       setInterval(() => {
-        dots[current].classList.remove('active');
         current = (current + 1) % dots.length;
-        dots[current].classList.add('active');
+        updateCarousel(current);
       }, 3000);
     </script>
 </body>
