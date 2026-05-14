@@ -57,7 +57,7 @@ A jornada do usuário foi projetada para ser intuitiva e dividida em etapas clar
 * Versionamento: Git e GitHub.
 
 
-## 📂 Estrutura do Código
+## Estrutura do Código
 
 ```text
 src/
