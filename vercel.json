@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/src/presentation/views/index.html" },
+    { "source": "/suites", "destination": "/src/presentation/views/suites.html" },
+    { "source": "/experiencias", "destination": "/src/presentation/views/experiencias.html" },
+    { "source": "/reserva", "destination": "/src/presentation/views/reserva.html" }
+  ]
+}
