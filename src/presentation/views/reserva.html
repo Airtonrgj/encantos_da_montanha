@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva — Encantos da Montanha</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/reserva.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="index.html"><img src="../../assets/logo_encantos_da_montanha.png" alt="Logo Encantos da Montanha"></a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html#sobre">A POUSADA</a></li>
+                <li><a href="suites.html">HOSPEDAGEM</a></li>
+                <li><a href="experiencias.html">ATIVIDADES</a></li>
+                <li><a href="index.html#galeria">GALERIA</a></li>
+                <li><a href="index.html#contato">CONTATO</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <span class="weather">30°C • Serra Das Veredas</span>
+                <a href="reserva.html" class="btn-reservar">RESERVAR AGORA</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="res-hero">
+        <div class="pill-badge">Estadia</div>
+        <h1>Reserve sua experiência</h1>
+        <p>Em poucos passos, sua estadia na Serra das Veredas estará garantida. Criamos um processo simples e acolhedor para que sua única preocupação seja aproveitar cada instante do seu descanso.</p>
+    </section>
+
+    <div class="res-stepper">
+        <div class="steps" id="steps">
+            <div class="step active" data-step="1">
+                <span class="step-circle">1</span>
+                <span class="step-label">Disponibilidade</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+                <span class="step-circle">2</span>
+                <span class="step-label">Dados do Cliente</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3">
+                <span class="step-circle">3</span>
+                <span class="step-label">Pagamento</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="4">
+                <span class="step-circle">4</span>
+                <span class="step-label">Confirmação</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="res-section">
+        <div class="res-card">
+            <div id="res-message-container"></div>
+
+            <!-- Passo 1 -->
+            <div class="res-step-panel active" data-panel="1">
+                <h2>Verifique a disponibilidade</h2>
+                <form id="form-disponibilidade" class="form-grid">
+                    <div class="form-field">
+                        <label for="checkin">Data de Check-in <span class="req">*</span></label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="checkout">Data de Check-out <span class="req">*</span></label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="adultos">Adultos <span class="req">*</span></label>
+                        <input type="number" id="adultos" name="adultos" min="1" max="20" value="2" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="quartos">Quartos <span class="req">*</span></label>
+                        <input type="number" id="quartos" name="quartos" min="1" max="6" value="1" required>
+                    </div>
+                    <div class="form-field full">
+                        <label for="suite">Suíte preferida</label>
+                        <select id="suite" name="suite">
+                            <option value="">Selecione uma suíte (opcional)</option>
+                            <option value="Suíte Vento do Sul|360">Suíte Vento do Sul — R$ 360 / noite</option>
+                            <option value="Suíte Lua Cheia|360">Suíte Lua Cheia — R$ 360 / noite</option>
+                            <option value="Suíte Jardim Secreto|390">Suíte Jardim Secreto — R$ 390 / noite</option>
+                            <option value="Suíte Estrela Dalva|370">Suíte Estrela Dalva — R$ 370 / noite</option>
+                            <option value="Suíte Bruma da Montanha|390">Suíte Bruma da Montanha — R$ 390 / noite</option>
+                            <option value="Suíte Raízes|330">Suíte Raízes — R$ 330 / noite</option>
+                        </select>
+                        <span class="hint" id="feriado-hint"></span>
+                    </div>
+                </form>
+                <div class="res-actions">
+                    <button class="btn-back" disabled>Voltar</button>
+                    <button class="btn-next" type="button" data-action="next-1">Verificar Disponibilidade</button>
+                </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div class="res-step-panel" data-panel="2">
+                <h2>Dados do(s) hóspede(s)</h2>
+                <div id="quartos-container"></div>
+                <div class="res-actions">
+                    <button class="btn-back" type="button" data-action="back-2">Voltar</button>
+                    <button class="btn-next" type="button" data-action="next-2">Continuar</button>
+                </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="res-step-panel" data-panel="3">
+                <h2>Resumo e pagamento</h2>
+
+                <div class="summary-grid">
+                    <div>
+                        <div class="summary-item-label">Suíte</div>
+                        <div class="summary-item-value" id="sum-suite">—</div>
+                    </div>
+                    <div>
+                        <div class="summary-item-label">Hóspedes</div>
+                        <div class="summary-item-value" id="sum-hospedes">—</div>
+                    </div>
+                    <div>
+                        <div class="summary-item-label">Quartos</div>
+                        <div class="summary-item-value" id="sum-quartos">—</div>
+                    </div>
+                    <div>
+                        <div class="summary-item-label">Check-in</div>
+                        <div class="summary-item-value" id="sum-checkin">—</div>
+                    </div>
+                    <div>
+                        <div class="summary-item-label">Check-out</div>
+                        <div class="summary-item-value" id="sum-checkout">—</div>
+                    </div>
+                    <div>
+                        <div class="summary-item-label">Noites</div>
+                        <div class="summary-item-value" id="sum-noites">—</div>
+                    </div>
+                    <div class="summary-total">
+                        <div class="summary-item-label">Total</div>
+                        <div class="summary-item-value" id="sum-total">R$ 0,00</div>
+                    </div>
+                </div>
+
+                <h3>Forma de Pagamento</h3>
+                <div class="pay-options" id="pay-options">
+                    <label class="pay-option selected">
+                        <input type="radio" name="pagamento" value="pix" checked>
+                        <div class="pay-option-content">
+                            <div class="pay-option-title">Pix</div>
+                            <div class="pay-option-desc">Confirmação imediata — sem taxas</div>
+                        </div>
+                    </label>
+                    <label class="pay-option">
+                        <input type="radio" name="pagamento" value="credito">
+                        <div class="pay-option-content">
+                            <div class="pay-option-title">Cartão de Crédito</div>
+                            <div class="pay-option-desc">Parcelamento em até 6x</div>
+                        </div>
+                    </label>
+                    <label class="pay-option">
+                        <input type="radio" name="pagamento" value="debito">
+                        <div class="pay-option-content">
+                            <div class="pay-option-title">Cartão de Débito</div>
+                            <div class="pay-option-desc">Pagamento à vista</div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="res-actions">
+                    <button class="btn-back" type="button" data-action="back-3">Voltar</button>
+                    <button class="btn-next" type="button" data-action="confirm">Confirmar Pagamento</button>
+                </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="res-step-panel" data-panel="4">
+                <div class="confirm-box">
+                    <div class="confirm-icon">✓</div>
+                    <h2>Reserva confirmada!</h2>
+                    <p>Seu pedido foi registrado com sucesso. Em instantes você receberá um e-mail com os detalhes da estadia e instruções para o pagamento.</p>
+                    <div class="confirm-code" id="confirm-code">Código: —</div>
+                </div>
+                <div class="confirm-actions">
+                    <a href="index.html" class="btn-back">Voltar ao início</a>
+                    <a href="suites.html" class="btn-next">Ver outras suítes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+              <path d="M20 4 L34 32 L6 32 Z" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none"/>
+              <circle cx="20" cy="10" r="3" stroke="#C8973A" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="footer-logo-text">Encantos<br>Montanha</div>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html#sobre">A Pousada</a>
+          <a href="suites.html">Hospedagem</a>
+          <a href="experiencias.html">Experiências</a>
+          <a href="index.html#galeria">Galeria</a>
+          <a href="index.html#contato">Contato</a>
+        </nav>
+        <div class="footer-socials">
+          <a class="social-icon" href="#" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">Direitos reservados</div>
+    </footer>
+
+    <script type="module" src="../scripts/clima.js"></script>
+    <script type="module" src="../scripts/reserva.js"></script>
+</body>
+</html>

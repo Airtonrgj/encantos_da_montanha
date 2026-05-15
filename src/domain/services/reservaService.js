@@ -1,5 +1,5 @@
-import { listarSuites, salvarSuite, buscarSuitePorId, atualizarSuite, deletarSuite } from "../../infrastructure/storage/suiteStorage"
-import { listarReservas, salvarReserva, buscarReservaPorId, atualizarReserva, deletarReserva } from "../../infrastructure/storage/reservaStorage"
+import { listarSuites, salvarSuite, buscarSuitePorId, atualizarSuite, deletarSuite } from "../../infrastructure/storage/suiteStorage.js"
+import { listarReservas, salvarReserva, buscarReservaPorId, atualizarReserva, deletarReserva } from "../../infrastructure/storage/reservaStorage.js"
 
 function obterTodasReservas(){
     const lista = listarReservas()
@@ -59,4 +59,4 @@ function confirmarReserva(id){
     return reserva                          // devolve a reserva confirmada
 }
 
-export { obterTodasReservas, obterReservaPorId, criarReserva }
+export { obterTodasReservas, obterReservaPorId, criarReserva, cancelarReserva, confirmarReserva }

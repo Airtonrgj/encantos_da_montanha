@@ -1,9 +1,9 @@
-import { adicionarExperiencia } from "../../domain/services/experienciaService"
+import { cadastrarExperiencia } from "../../../domain/services/experienciaService.js";
 
 function execute(dados) {
-    const experiencia = adicionarExperiencia(dados)
-    if (!experiencia) return null
-    return experiencia
+    const experiencia = cadastrarExperiencia(dados);
+    if (!experiencia) return null;
+    return experiencia;
 }
 
-export { execute }
+export { execute };

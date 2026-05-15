@@ -1,4 +1,4 @@
-import { listarSuites, salvarSuite, buscarSuitePorId, atualizarSuite, deletarSuite } from "../../infrastructure/storage/suiteStorage"
+import { listarSuites, salvarSuite, buscarSuitePorId, atualizarSuite, deletarSuite } from "../../infrastructure/storage/suiteStorage.js"
 
 function obterTodasSuites(){
     const lista = listarSuites()
