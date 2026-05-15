@@ -98,7 +98,7 @@ nav {
 .hero {
     height: calc(100vh - 80px);
     min-height: 500px;
-    background-image: url("/src/assets/serra_das_veredas.jpg");
+    background-image: url("../../assets/serra_das_veredas.jpg");
     overflow: hidden;
     background-size: cover;
     background-position: center;
