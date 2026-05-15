@@ -1,0 +1,215 @@
+/* ============================================================
+   reservas-confirmacao.css
+   Etapa 4 – Confirmação
+   ============================================================ */
+
+/* ── CARD DE SUCESSO ── */
+.confirmacao-card {
+  background: var(--cream-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.5s ease both;
+}
+
+/* ── ÍCONE DE CHECK ── */
+.success-icon-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(42, 61, 42, 0.08);
+  border: 2px solid var(--dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.5s 0.2s ease both;
+}
+
+.success-icon svg {
+  stroke: var(--dark-green);
+}
+
+/* ── TEXTOS DE SUCESSO ── */
+.confirmacao-titulo {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 400;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.confirmacao-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* ── NÚMERO DE RESERVA ── */
+.reserva-numero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.reserva-numero-label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.reserva-numero-value {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--dark-green);
+  letter-spacing: 0.06em;
+}
+
+/* ── DETALHES DA RESERVA ── */
+.detalhe-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.detalhe-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  gap: 16px;
+}
+
+.detalhe-row:last-child { border-bottom: none; }
+
+.detalhe-row .d-label {
+  color: var(--text-light);
+  font-weight: 400;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.detalhe-row .d-value {
+  color: var(--text-dark);
+  font-weight: 400;
+  text-align: right;
+}
+
+/* ── BOTÃO PRINCIPAL ── */
+.btn-baixar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: var(--dark-green);
+  color: var(--white);
+  border: none;
+  padding: 16px 28px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.btn-baixar:hover {
+  background: var(--mid-green);
+  transform: translateY(-1px);
+}
+
+/* ── BOTÕES SECUNDÁRIOS ── */
+.btns-secundarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid #25D366;
+  color: #128C4A;
+  padding: 13px 20px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background: #25D366;
+  color: var(--white);
+}
+
+.btn-inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-mid);
+  padding: 13px 20px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.btn-inicio:hover {
+  border-color: var(--text-mid);
+  color: var(--text-dark);
+}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .confirmacao-card { padding: 24px 18px; }
+  .btns-secundarios { grid-template-columns: 1fr; }
+  .detalhe-row .d-label { min-width: 90px; }
+}

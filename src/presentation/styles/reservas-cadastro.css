@@ -1,0 +1,50 @@
+/* ============================================================
+   reservas-cadastro.css
+   Etapa 2 – Dados do Cliente
+   ============================================================ */
+
+/* ── QUARTO CARD ── */
+.quarto-card {
+  background: var(--cream-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.quarto-card:nth-child(1) { animation-delay: 0.05s; }
+.quarto-card:nth-child(2) { animation-delay: 0.15s; }
+.quarto-card:nth-child(3) { animation-delay: 0.25s; }
+
+.quarto-card-header {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── AÇÕES ── */
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* ── ANIMAÇÃO ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .quarto-card { padding: 20px 18px; }
+  .form-actions { grid-template-columns: 1fr; }
+}
