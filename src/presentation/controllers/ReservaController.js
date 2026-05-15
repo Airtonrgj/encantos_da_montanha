@@ -7,3 +7,17 @@ function realizarReserva(dados) {
     if (!reserva) return { ok: false, mensagem: 'Não foi possível criar a reserva da suíte'}
     return {ok: true, mensagem: 'Reserva realida com sucesso', dados: reserva}
 }
+
+function cancelarReserva(id) {
+    const reserva = cancelarReserva(id)
+    if (!reserva) return {ok: false, mensagem: 'Não foi possível cancelar a reserva'}
+    return {ok: true, mensagem: 'Reserva cancelada com sucesso'}
+}
+
+function listarReservas() {
+    const reservas = obterTodasReservas()
+    if (!reservas) return []
+    return reservas
+}
+
+export { realizarReserva, cancelarReserva, listarReservas }
