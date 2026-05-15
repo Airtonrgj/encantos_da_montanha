@@ -1,191 +1,185 @@
-/* Hero — experiências */
-.exp-hero {
-    height: 60vh;
-    min-height: 380px;
-    background-image: linear-gradient(rgba(20,30,20,0.55), rgba(20,30,20,0.25)),
-                      url("../../assets/serra_das_veredas.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    padding: 0 24px;
+.experience-hero-bg {
+  background:
+    linear-gradient(120deg, rgba(30,45,30,.72) 0%, rgba(60,40,20,.3) 100%),
+    url('../../assets/serra_das_veredas.jpg') center/cover no-repeat;
 }
 
-.exp-hero-inner {
-    max-width: 720px;
+.experience-page-body .hero .hero-bg.experience-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.exp-hero .pill-badge {
-    color: rgba(255,255,255,0.9);
-    border-color: rgba(255,255,255,0.5);
-    margin-bottom: 18px;
+.experience-page-body .listing {
+  max-width: 1100px;
 }
 
-.exp-hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(40px, 5vw, 64px);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 18px;
-}
-
-.exp-hero h1 em {
-    font-style: italic;
-    color: var(--amber);
-}
-
-.exp-hero p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.85);
-    max-width: 560px;
-    margin: 0 auto;
-}
-
-/* Listagem */
-.exp-list {
+.experience-page-body {
+    font-family: 'Jost', sans-serif;
     background: var(--cream);
-    padding: 80px 80px;
-}
-
-.exp-list-header {
-    text-align: center;
-    margin-bottom: 56px;
-}
-
-.exp-list-header h2 {
-    font-family: var(--serif);
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 400;
-    margin-bottom: 12px;
-}
-
-.exp-list-header p {
-    font-size: 14px;
-    color: var(--text-light);
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-.exp-grid {
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  
+  .experience-card-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.exp-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(90,74,58,0.1);
-    border-radius: 4px;
-    overflow: hidden;
+  }
+  
+  .experience-card {
     display: flex;
     flex-direction: column;
-    transition: transform .25s, box-shadow .25s;
-}
-
-.exp-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(60,40,20,0.12);
-}
-
-.exp-card-img {
-    width: 100%;
-    height: 240px;
+    gap: 0;
+    border: 1px solid rgba(184,170,151,.3);
+    border-radius: 14px;
+    background: var(--white);
+    box-shadow: 0 10px 30px rgba(60,40,20,.05);
     overflow: hidden;
-    background: linear-gradient(135deg, #3a5028 0%, #5a7040 50%, #8aa060 100%);
-}
-
-.exp-card-img img {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .7s forwards ease-out;
+  }
+  
+  .experience-card:nth-child(1) { animation-delay: .05s; }
+  .experience-card:nth-child(2) { animation-delay: .15s; }
+  .experience-card:nth-child(3) { animation-delay: .25s; }
+  .experience-card:nth-child(4) { animation-delay: .35s; }
+  .experience-card:nth-child(5) { animation-delay: .45s; }
+  .experience-card:nth-child(6) { animation-delay: .55s; }
+  
+  .experience-img {
+    width: 100%;
+    aspect-ratio: 32 / 9;
+    overflow: hidden;
+    background: var(--warm);
+    flex-shrink: 0;
+  }
+  
+  .experience-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-}
-
-.exp-card-body {
-    padding: 28px;
+    transition: transform .5s ease;
+  }
+  
+  .experience-card:hover .experience-img img {
+    transform: scale(1.04);
+  }
+  
+  .experience-body {
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-.exp-card-title {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 500;
-    color: var(--text-dark);
-    margin-bottom: 14px;
-}
-
-.exp-card-desc {
+    gap: 12px;
+    padding: 20px 20px 0;
+  }
+  
+  .experience-body h3 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    color: var(--bark);
+  }
+  
+  .experience-body p {
+    margin: 0;
     font-size: 14px;
-    color: var(--text-mid);
+    color: var(--muted);
     line-height: 1.7;
-    margin-bottom: 22px;
-}
-
-.exp-card-meta {
+  }
+  
+  .experience-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 22px;
-    margin-bottom: 24px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(90,74,58,0.15);
-}
-
-.exp-meta-item {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+  }
+  
+  .experience-info-block {
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--warm);
+  }
+  
+  .experience-info-block label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+  
+  .experience-info-block span {
+    display: block;
+    font-size: 12px;
+    color: var(--bark);
+    line-height: 1.5;
+  }
+  
+  .experience-page-body .nav-logo a {
     display: flex;
     flex-direction: column;
-}
-
-.exp-meta-label {
-    font-size: 10.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 4px;
-}
-
-.exp-meta-value {
-    font-size: 14px;
-    color: var(--text-dark);
-    font-weight: 500;
-}
-
-.exp-card-footer {
-    margin-top: auto;
-}
-
-.btn-exp-reservar {
-    display: inline-block;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 13px 22px;
-    border: 1.5px solid var(--text-dark);
-    background: transparent;
-    color: var(--text-dark);
-    cursor: pointer;
+    align-items: center;
+    line-height: 1;
     text-decoration: none;
-    transition: all .2s;
-}
-
-.btn-exp-reservar:hover {
-    background: var(--text-dark);
+  }
+  
+  .btn-reservar-exp {
+    display: block;
+    box-sizing: border-box;
+    width: calc(100% + 40px);
+    margin: 16px -20px 0;
+    background: var(--earth);
     color: var(--white);
-}
-
-@media (max-width: 900px) {
-    .exp-list { padding: 56px 24px; }
-    .exp-grid { grid-template-columns: 1fr; gap: 24px; }
-    .exp-card-img { height: 200px; }
-    .exp-card-body { padding: 22px; }
-}
+    border: none;
+    border-radius: 0;
+    padding: 14px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  
+  .btn-reservar-exp:hover {
+    background: var(--forest-l);
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 900px) {
+    .experience-card-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .experience-page-body .listing-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  
+    .experience-body {
+      padding: 16px 16px 0;
+    }
+  
+    .btn-reservar-exp {
+      width: calc(100% + 32px);
+      margin: 16px -16px 0;
+    }
+  
+    .experience-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
