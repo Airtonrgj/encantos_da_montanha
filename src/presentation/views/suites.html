@@ -1,73 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pousada Encanto das Montanhas | Confira nossas suítes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospedagem — Pousada Serra Verde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/suites.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="nav-logo">
-                <img src="/src/assets/logo_encantos_da_montanha.png" alt="Logo Encanto das Montanhas">
-            </div>
 
-            <!-- Inserir link de cada seção. -->
-            <ul class="nav-menu">
-                <li><a href="#">A POUSADA</a></li>
-                <li><a href="#">HOSPEDAGEM</a></li>
-                <li><a href="#">ATIVIDADES</a></li>
-                <li><a href="#">GALERIA</a></li>
-                <li><a href="#">CONTATO</a></li>
-            </ul>
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-logo">
+      <span>Serra Verde</span>
+      <span>Pousada</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">A Pousada</a></li>
+      <li><a href="#" class="active">Hospedagem</a></li>
+      <li><a href="#">Atividades</a></li>
+      <li><a href="#">Outra</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-tel">+55 (35) 99999-0000</span>
+      <button class="btn-reservar">Reservar Agora</button>
+    </div>
+  </nav>
 
-            <div class="nav-actions">
-                <span class="weather">30°C • Serra Das Veredas</span>
-            </div>
-        </nav>
-    </header>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Suítes que exalam <em>calma</em> e <em>descanso.</em></h1>
+      <p>Conheça um pouco de cada suíte e faça a sua reserva.</p>
+    </div>
+    <div class="hero-scroll">Role para ver</div>
+  </section>
 
-    <h2>Nossas suítes</h2>
+  <!-- ── LISTING ── -->
+  <main class="listing">
+    <div class="listing-header">
+      <h2>Nossas Suítes</h2>
+      <span>6 opções disponíveis</span>
+    </div>
 
-    <section class="hero">
-        <div id="room-card">
-            
-            <div class="room-1">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-buritis.jpeg" alt="Suíte Buritis">
-                </div>
-            </div>
-
-            <div class="room-2">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-candeeiro.jpeg" alt="Suíte Candeeiro">
-                </div>
-            </div>
-
-            <div class="room-3">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-lua-cheia.jpeg" alt="Suíte Lua Cheia">
-                </div>
-            </div>
-
-            <div class="room-4">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-pedra-viva.jpeg" alt="Suíte Pedra Viva">
-                </div>
-            </div>
-
-            <div class="room-5">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-vento-sul.jpeg" alt="Suíte Vento Sul">
-                </div>
-            </div>
-
-            <div class="room-6">
-                <div class="room-imgs">
-                    <img src="/src/assets/suite-serra-branca.jpeg" alt="Suíte Serra Branca">
-                </div>
-            </div>
+    <!-- Suite 1 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-vento-sul.jpeg" alt="Suite Vento do Sul" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Vento do Sul</h3>
+          <p class="suite-desc">Inspirada no ritmo do descanso, essa suíte oferece um ambiente acolhedor com detalhes únicos e uma vista privilegiada para a mata. Ideal para quem busca tranquilidade e conexão com a natureza.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">King Size</span>
+            <span class="tag">Varanda</span>
+            <span class="tag">Banheira</span>
+          </div>
         </div>
-    </section>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 360</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite">Reservar</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Suite 2 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-lua-cheia.jpeg" alt="Suite Lua Cheia" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Lua Cheia</h3>
+          <p class="suite-desc">Perfeita para momentos inesquecíveis, essa suíte conta com janelas panorâmicas que enquadram a mata como uma pintura viva. São detalhes cuidadosamente pensados para proporcionar uma hospedagem de excelência.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">King Size</span>
+            <span class="tag">Lareira</span>
+            <span class="tag">Jacuzzi</span>
+            <span class="tag">Vista Serra</span>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 340</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite secondary">Reservar</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Suite 3 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-pedra-viva.jpeg" alt="Suite Pedra Viva" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Pedra Viva</h3>
+          <p class="suite-desc">Como um refúgio escondido no coração da fazenda, essa suíte é a escolha perfeita para quem busca privacidade total. Com acesso direto ao jardim e trilhas exclusivas, a natureza é a sua vizinhança.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">King Size</span>
+            <span class="tag">Pátio</span>
+            <span class="tag">Lareira</span>
+            <span class="tag">Ofurô</span>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 380</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite">Reservar</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Suite 4 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-lua-cheia.jpeg" alt="Suite Lua Cheia" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Lua Cheia</h3>
+          <p class="suite-desc">Nomeada em homenagem à estrela mais brilhante da madrugada, essa suíte te convida a desacelerar e contemplar o céu. Seus detalhes remetem à serenidade do amanhecer com toques de elegância campestre.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">King Size</span>
+            <span class="tag">Varanda</span>
+            <span class="tag">Lareira</span>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 375</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite secondary">Reservar</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Suite 5 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-serra-branca.jpeg" alt="Suite Serra Branca" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Serra Branca</h3>
+          <p class="suite-desc">Com uma atmosfera etérea e envolto pela névoa característica das manhãs serranas, essa suíte é ideal para apreciadores de quietude e beleza natural. Acorde com a bruma e mergulhe na tranquilidade.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">King Size</span>
+            <span class="tag">Lareira</span>
+            <span class="tag">Jardim</span>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 390</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite">Reservar</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Suite 6 -->
+    <article class="suite-card">
+      <div class="suite-img">
+        <img src="/src/assets/suite-buritis.jpeg" alt="Suite Buritis" loading="lazy" />
+      </div>
+      <div class="suite-body">
+        <div>
+          <h3 class="suite-title">Suite Buritis</h3>
+          <p class="suite-desc">Com um estilo rústico e refinado, essa suíte conta com acabamentos de madeira de demolição e pedra natural, que transmitem a essência do local. Para quem deseja sentir a alma da fazenda em cada detalhe.</p>
+          <div class="suite-tags-row">
+            <span class="tags-label">Inclui:</span>
+            <span class="tag">Casal</span>
+            <span class="tag">Lareira</span>
+            <span class="tag">Vista</span>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <div class="suite-price">
+            <strong>R$ 320</strong>
+            <span>/ noite</span>
+          </div>
+          <button class="btn-suite secondary">Reservar</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-top">
+      <ul class="footer-links">
+        <li><a href="#">A Pousada</a></li>
+        <li><a href="#">Hospedagem</a></li>
+        <li><a href="#">Atividades</a></li>
+        <li><a href="#">Galeria</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <div class="footer-logo">
+        <span>Serra Verde</span>
+        <span>Pousada</span>
+      </div>
+      <div class="footer-social">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- Pinterest -->
+        <a href="#" aria-label="Pinterest">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.76 1.22-5.14 1.22-5.14s-.31-.62-.31-1.54c0-1.45.84-2.53 1.87-2.53.88 0 1.31.66 1.31 1.46 0 .89-.57 2.22-.86 3.45-.25 1.03.51 1.87 1.52 1.87 1.83 0 3.06-2.33 3.06-5.09 0-2.09-1.41-3.66-3.96-3.66-2.89 0-4.69 2.16-4.69 4.58 0 .83.24 1.42.62 1.87.17.2.19.28.13.51-.04.17-.14.57-.18.73-.06.23-.23.31-.43.23-1.24-.51-1.82-1.89-1.82-3.43 0-2.55 2.16-5.63 6.44-5.63 3.47 0 5.75 2.52 5.75 5.23 0 3.59-1.99 6.27-4.91 6.27-.98 0-1.9-.53-2.22-1.13l-.63 2.46c-.23.88-.84 1.98-1.25 2.65.94.29 1.94.45 2.97.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#" aria-label="WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Pousada Serra Verde · Todos os direitos reservados
+    </div>
+  </footer>
+
 </body>
 </html>
