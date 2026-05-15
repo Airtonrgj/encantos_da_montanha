@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de Integração - Repositories</title>
+</head>
+<body>
+    <h1>Abra o console (F12) para ver os resultados</h1>
+    <script type="module">
+        import Suite from "../domain/entities/Suite.js"
+        import SuiteRepository from "../infrastructure/database/SuiteRepository.js"
+        import Experiencia from "../domain/entities/Experiencia.js"
+        import ExperienciaRepository from "../infrastructure/database/ExperienciaRepository.js"
+
+        // Limpa o localStorage antes de testar
+        localStorage.clear()
+
+        const suiteRepo = new SuiteRepository()
+        const expRepo = new ExperienciaRepository()
+
+        // ===== TESTES SUITE =====
+        console.log("===== TESTES SUITE =====")
+
+        // Teste 1: salvar
+        const suite1 = new Suite("99", "Suite Teste", "Descrição teste", ["foto.jpg"], ["Wi-Fi"], 250)
+        suiteRepo.salvaSuite(suite1)
+        console.log("Teste 1 - Salvar: OK")
+
+        // Teste 2: listar
+        const lista = suiteRepo.listaDeSuites()
+        console.log("Teste 2 - Listar:", lista.length, "suíte(s)")
+
+        // Teste 3: buscar por id
+        const encontrada = suiteRepo.buscaPorId("99")
+        console.log("Teste 3 - Buscar por ID:", encontrada.nome)
+
+        // Teste 4: é instância de Suite? (reidratação funcionou?)
+        console.log("Teste 4 - É instância de Suite?", encontrada instanceof Suite)
+
+        // ===== TESTES EXPERIENCIA =====
+        console.log("===== TESTES EXPERIENCIA =====")
+
+        // Teste 5: salvar experiencia
+        const exp1 = new Experiencia("50", "Trilha do Sol", "3 horas", "Moderada", "08:00", "Tênis de trilha")
+        expRepo.salvarExpr(exp1)
+        console.log("Teste 5 - Salvar experiência: OK")
+
+        // Teste 6: listar
+        const listaExp = expRepo.listaDeExperiencia()
+        console.log("Teste 6 - Listar:", listaExp.length, "experiência(s)")
+
+        // Teste 7: é instância?
+        console.log("Teste 7 - É instância de Experiencia?", listaExp[0] instanceof Experiencia)
+
+        // Limpa depois de testar
+        localStorage.clear()
+        console.log("===== TESTES FINALIZADOS =====")
+    </script>
+</body>
+</html>
