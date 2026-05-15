@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva Confirmada | Pousada Encantos da Montanha</title>
+  <meta name="description" content="Sua reserva na Pousada Encantos da Montanha foi confirmada. Veja os detalhes e prepare-se para uma experiência inesquecível." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/reservas-shared.css" />
+  <link rel="stylesheet" href="../styles/reservas-confirmacao.css" />
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <header>
+    <nav>
+      <div class="nav-logo">
+        <img src="/src/assets/logo_encantos_da_montanha.png" alt="Logo Encantos da Montanha" />
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/src/presentation/views/index.html">A Pousada</a></li>
+        <li><a href="/src/presentation/views/suites.html">Hospedagem</a></li>
+        <li><a href="#">Atividades</a></li>
+        <li><a href="#">Galeria</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <span class="weather">30°C • Serra Das Veredas</span>
+        <a href="reservas-selecao.html" class="btn-reservar">Reservar Agora</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── HERO MINI ── -->
+  <div class="hero-mini" role="img" aria-label="Vista da pousada Encantos da Montanha"></div>
+
+  <!-- ── CONTEÚDO ── -->
+  <section class="section-reserva">
+    <div class="reserva-wrapper">
+
+      <!-- Cabeçalho -->
+      <div class="reserva-header">
+        <div class="pill-badge">Estadia</div>
+        <h1 class="reserva-title">Reserve sua experiência</h1>
+        <p class="reserva-subtitle">
+          Em poucos passos, sua estadia na Serra das Veredas estará garantida. Criamos um processo simples e acolhedor
+          para que sua única preocupação seja aproveitar cada instante do seu descanso.
+        </p>
+      </div>
+
+      <!-- Progress Stepper – todas as etapas concluídas -->
+      <nav class="stepper" aria-label="Etapas da reserva">
+        <div class="stepper-step completed" id="step-1">
+          <div class="stepper-circle"><span class="step-num">1</span></div>
+          <span class="stepper-label">Disponibilidade</span>
+        </div>
+        <div class="stepper-step completed" id="step-2">
+          <div class="stepper-circle"><span class="step-num">2</span></div>
+          <span class="stepper-label">Dados do Cliente</span>
+        </div>
+        <div class="stepper-step completed" id="step-3">
+          <div class="stepper-circle"><span class="step-num">3</span></div>
+          <span class="stepper-label">Pagamento</span>
+        </div>
+        <div class="stepper-step active" id="step-4">
+          <div class="stepper-circle"><span class="step-num">4</span></div>
+          <span class="stepper-label">Confirmação</span>
+        </div>
+      </nav>
+
+      <!-- Card de confirmação -->
+      <div class="confirmacao-card">
+
+        <!-- Ícone de sucesso -->
+        <div class="success-icon-wrap">
+          <div class="success-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Textos -->
+        <h2 class="confirmacao-titulo">Sua reserva foi confirmada!</h2>
+        <p class="confirmacao-desc">
+          Tudo pronto para sua experiência na serra. Em breve você receberá os detalhes por e-mail e WhatsApp.<br>
+          Agora é só preparar as malas e viver momentos inesquecíveis.
+        </p>
+
+        <!-- Número da reserva -->
+        <div class="reserva-numero">
+          <p class="reserva-numero-label">Número de reserva</p>
+          <p class="reserva-numero-value" id="conf-numero">#ENV-2025-0617</p>
+        </div>
+
+        <!-- Detalhes da reserva -->
+        <div class="detalhe-list" aria-label="Detalhes da reserva">
+          <div class="detalhe-row">
+            <span class="d-label">Suite</span>
+            <span class="d-value" id="conf-suite">Vento do Sul – cama king, lareira, varanda</span>
+          </div>
+          <div class="detalhe-row">
+            <span class="d-label">Hospedagem</span>
+            <span class="d-value" id="conf-hospedagem">20 e 23 de junho de 2025 – 3 noites</span>
+          </div>
+          <div class="detalhe-row">
+            <span class="d-label">Check-in · Check-out</span>
+            <span class="d-value">A partir das 14h · até as 12h</span>
+          </div>
+          <div class="detalhe-row">
+            <span class="d-label">Valor pago</span>
+            <span class="d-value" id="conf-valor">R$ 1.080,00 via Pix</span>
+          </div>
+          <div class="detalhe-row">
+            <span class="d-label">Política de cancelamento</span>
+            <span class="d-value">Reembolso integral até 7 dias antes do check-in</span>
+          </div>
+        </div>
+
+        <!-- Botão principal -->
+        <button type="button" class="btn-baixar" id="btn-baixar" aria-label="Baixar comprovante da reserva">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Baixar comprovante
+        </button>
+
+        <!-- Botões secundários -->
+        <div class="btns-secundarios">
+          <a href="#" class="btn-whatsapp" id="btn-whatsapp" aria-label="Falar pelo WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+            </svg>
+            Falar no WhatsApp
+          </a>
+          <a href="/src/presentation/views/index.html" class="btn-inicio" aria-label="Voltar ao início">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Voltar ao início
+          </a>
+        </div>
+
+      </div>
+      <!-- /confirmacao-card -->
+
+    </div><!-- /reserva-wrapper -->
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo-wrap">
+        <img src="/src/assets/logo_encantos_da_montanha.png" alt="Logo Encantos da Montanha" />
+        <div class="footer-logo-text">Encantos da<br>Montanha</div>
+      </div>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <a href="#">A Pousada</a>
+        <a href="#">Hospedagem</a>
+        <a href="#">Experiências</a>
+        <a href="#">Galeria</a>
+        <a href="#">Contato</a>
+      </nav>
+      <div class="footer-socials">
+        <a class="social-icon" href="#" title="Email" aria-label="Email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 7 10-7"/></svg>
+        </a>
+        <a class="social-icon" href="#" title="Instagram" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social-icon" href="#" title="Pinterest" aria-label="Pinterest">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.19-.77 1.28-5.43 1.28-5.43s-.33-.65-.33-1.62c0-1.52.88-2.66 1.97-2.66.93 0 1.38.7 1.38 1.54 0 .94-.6 2.34-.91 3.64-.26 1.09.54 1.97 1.6 1.97 1.93 0 3.41-2.03 3.41-4.96 0-2.59-1.86-4.41-4.52-4.41-3.08 0-4.88 2.31-4.88 4.69 0 .93.36 1.92.8 2.46.09.11.1.2.07.32-.08.33-.27 1.09-.3 1.24-.05.19-.17.23-.38.14-1.39-.65-2.26-2.69-2.26-4.33 0-3.52 2.56-6.76 7.38-6.76 3.87 0 6.88 2.76 6.88 6.44 0 3.84-2.42 6.92-5.77 6.92-1.13 0-2.19-.59-2.55-1.28l-.69 2.58c-.25.97-.93 2.18-1.39 2.92.05 0 .09.01.14.01C17.52 22 22 17.52 22 12S17.52 2 12 2z"/></svg>
+        </a>
+        <a class="social-icon" href="#" title="WhatsApp" aria-label="WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+        <a class="social-icon" href="#" title="TikTok" aria-label="TikTok">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">Direitos reservados</div>
+  </footer>
+
+  <script>
+    // ── Preencher dados da confirmação via sessionStorage ──
+    function formatDate(iso) {
+      if (!iso) return null;
+      const [y, m, d] = iso.split('-');
+      return `${d}/${m}/${y}`;
+    }
+
+    const numero   = sessionStorage.getItem('reserva_numero');
+    const suite    = sessionStorage.getItem('reserva_suite_nome');
+    const checkin  = sessionStorage.getItem('reserva_checkin');
+    const checkout = sessionStorage.getItem('reserva_checkout');
+    const noites   = sessionStorage.getItem('reserva_noites');
+    const quartos  = parseInt(sessionStorage.getItem('reserva_quartos') || '1');
+    const preco    = parseFloat(sessionStorage.getItem('reserva_suite_preco') || '0');
+    const metodo   = sessionStorage.getItem('reserva_metodo_pagamento') || 'pix';
+    const total    = preco * (parseInt(noites) || 0) * quartos;
+
+    // Nomes amigáveis para forma de pagamento
+    const metodoNome = { 'pix': 'Pix', 'cartao-credito-1': 'Cartão de Crédito', 'cartao-credito-2': 'Cartão de Crédito' };
+
+    if (numero) document.getElementById('conf-numero').textContent = numero;
+
+    if (suite) {
+      document.getElementById('conf-suite').textContent = suite + ' – cama king, lareira, varanda';
+    }
+
+    if (checkin && checkout && noites) {
+      const ciDate  = new Date(checkin + 'T12:00:00');
+      const coDate  = new Date(checkout + 'T12:00:00');
+      const meses   = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+      const ciStr   = `${ciDate.getDate()} de ${meses[ciDate.getMonth()]}`;
+      const coStr   = `${coDate.getDate()} de ${meses[coDate.getMonth()]} de ${coDate.getFullYear()}`;
+      document.getElementById('conf-hospedagem').textContent =
+        `${ciStr} e ${coStr} – ${noites} ${noites == 1 ? 'noite' : 'noites'}`;
+    }
+
+    if (total > 0) {
+      const totalFmt = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} via ${metodoNome[metodo] || 'Pix'}`;
+      document.getElementById('conf-valor').textContent = totalFmt;
+    }
+
+    // ── Botão baixar comprovante (simulado) ──
+    document.getElementById('btn-baixar').addEventListener('click', () => {
+      const num = sessionStorage.getItem('reserva_numero') || '#ENV-2025-0617';
+      alert(`Comprovante ${num} pronto para download.\n(Integração com API de PDF a implementar)`);
+    });
+
+    // ── Limpar sessão ao voltar ao início ──
+    document.querySelector('.btn-inicio').addEventListener('click', () => {
+      sessionStorage.clear();
+    });
+  </script>
+</body>
+</html>
