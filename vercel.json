@@ -5,6 +5,10 @@
     { "source": "/", "destination": "/src/presentation/views/index.html" },
     { "source": "/suites", "destination": "/src/presentation/views/suites.html" },
     { "source": "/experiencias", "destination": "/src/presentation/views/experiencias.html" },
-    { "source": "/reserva", "destination": "/src/presentation/views/reserva.html" }
+    { "source": "/reserva", "destination": "/src/presentation/views/reserva.html" },
+    { "source": "/reservas-selecao", "destination": "/src/presentation/views/reservas-selecao.html" },
+    { "source": "/reservas-cadastro", "destination": "/src/presentation/views/reservas-cadastro.html" },
+    { "source": "/reservas-pagamentos", "destination": "/src/presentation/views/reservas-pagamentos.html" },
+    { "source": "/reservas-confirmacao", "destination": "/src/presentation/views/reservas.confirmacao.html" }
   ]
 }
