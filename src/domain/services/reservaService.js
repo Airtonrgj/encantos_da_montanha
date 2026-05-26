@@ -1,5 +1,6 @@
 import { listarSuites, salvarSuite, buscarSuitePorId, atualizarSuite, deletarSuite } from "../../infrastructure/storage/suiteStorage.js"
 import { listarReservas, salvarReserva, buscarReservaPorId, atualizarReserva, deletarReserva } from "../../infrastructure/storage/reservaStorage.js"
+import PeriodoStadia from "../valueObjects/Periodo.js"
 
 function obterTodasReservas(){
     const lista = listarReservas()
@@ -19,7 +20,20 @@ function criarReserva(dados) {
 
     const suite = buscarSuitePorId(dados.idSuite)
     if (!suite) return null
-    if (!suite.disponivel) return null
+
+    // monta o periodo da reserva nova — ja valida checkin < checkout
+    const novoPeriodo = new PeriodoStadia(dados.dataEntrada, dados.dataSaida)
+
+    // checa sobreposicao com qualquer reserva ativa da mesma suite
+    const reservasDaSuite = listarReservas().filter(r =>
+        r.idSuite === dados.idSuite && r.status !== "cancelada"
+    )
+    for (const r of reservasDaSuite){
+        const p = new PeriodoStadia(r.dataEntrada, r.dataSaida)
+        if (novoPeriodo.sobrepoeCom(p)){
+            throw new Error("Essa suíte já tem reserva nas datas escolhidas.")
+        }
+    }
 
     const novaReserva = {
         id: Date.now(),
@@ -32,22 +46,17 @@ function criarReserva(dados) {
         status: 'pendente'
     }
 
-    suite.disponivel = false        // marca como indisponível
-    atualizarSuite(suite)           // suíte atualizada
-    salvarReserva(novaReserva)      // salva a reserva
-    return novaReserva              // devolve a reserva criada
+    salvarReserva(novaReserva)
+    return novaReserva
 }
 
 function cancelarReserva(id){
-    const reserva = buscarReservaPorId(id)  // busca a reserva
-    if (!reserva) return null               // se não existir, para
+    const reserva = buscarReservaPorId(id)
+    if (!reserva) return null
 
-    reserva.status = 'cancelada'            // muda o status
-    atualizarReserva(reserva)               // salva a reserva
-
-    const suite = buscarSuitePorId(reserva.idSuite)  // busca a suíte
-    suite.disponivel = true                           // marca disponível
-    atualizarSuite(suite)                             // salva a suíte 
+    reserva.status = 'cancelada'
+    atualizarReserva(reserva)
+    // nao mexe mais em suite.disponivel — disponibilidade agora vem do periodo
 }
 
 function confirmarReserva(id){
@@ -59,4 +68,16 @@ function confirmarReserva(id){
     return reserva                          // devolve a reserva confirmada
 }
 
-export { obterTodasReservas, obterReservaPorId, criarReserva, cancelarReserva, confirmarReserva }
+// util pra UI: ver se a suite tem alguma reserva ativa que sobreponha o periodo
+function verificarDisponibilidadeNoPeriodo(idSuite, checkin, checkout){
+    const periodo = new PeriodoStadia(checkin, checkout)
+    const reservasDaSuite = listarReservas().filter(r =>
+        r.idSuite === idSuite && r.status !== "cancelada"
+    )
+    return !reservasDaSuite.some(r => {
+        const p = new PeriodoStadia(r.dataEntrada, r.dataSaida)
+        return periodo.sobrepoeCom(p)
+    })
+}
+
+export { obterTodasReservas, obterReservaPorId, criarReserva, cancelarReserva, confirmarReserva, verificarDisponibilidadeNoPeriodo }

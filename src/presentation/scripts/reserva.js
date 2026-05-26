@@ -1,5 +1,10 @@
 import ReservaController from "../controllers/ReservaController.js";
 import ClimaController from "../controllers/ClimaController.js";
+import Email from "../../domain/valueObjects/Email.js";
+import Telefone from "../../domain/valueObjects/Telefone.js";
+import CPF from "../../domain/valueObjects/CPF.js";
+import Nome from "../../domain/valueObjects/Nome.js";
+import CidadeUF from "../../domain/valueObjects/CidadeUF.js";
 
 const state = {
     step: 1,
@@ -76,15 +81,17 @@ function lerPasso1() {
         return null;
     }
 
-    let suiteNome = "A definir";
-    let suitePreco = 360;
-    if (suiteSel) {
-        const [nome, preco] = suiteSel.split("|");
-        suiteNome = nome;
-        suitePreco = Number(preco);
+    if (!suiteSel) {
+        mostrarMensagem("Selecione uma suíte.");
+        return null;
     }
 
-    return { checkin, checkout, adultos, quartos, suiteNome, suitePreco };
+    // value = "id|Nome|Preco"
+    const [idStr, suiteNome, precoStr] = suiteSel.split("|");
+    const idSuite = Number(idStr);
+    const suitePreco = Number(precoStr);
+
+    return { checkin, checkout, adultos, quartos, idSuite, suiteNome, suitePreco };
 }
 
 // ---------- Passo 2: Dados dos hóspedes ----------
@@ -108,15 +115,15 @@ function renderizarPasso2() {
                 </div>
                 <div class="form-field">
                     <label>Contato <span class="req">*</span></label>
-                    <input type="tel" data-quarto="${i}" data-campo="telefone" placeholder="(00) 00000-0000" required>
+                    <input type="tel" data-quarto="${i}" data-campo="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
                 </div>
                 <div class="form-field">
                     <label>Contato Opcional</label>
-                    <input type="tel" data-quarto="${i}" data-campo="telefone2" placeholder="(00) 00000-0000">
+                    <input type="tel" data-quarto="${i}" data-campo="telefone2" placeholder="(00) 00000-0000" maxlength="15">
                 </div>
                 <div class="form-field">
                     <label>CPF <span class="req">*</span></label>
-                    <input type="text" data-quarto="${i}" data-campo="cpf" placeholder="000.000.000-00" required>
+                    <input type="text" data-quarto="${i}" data-campo="cpf" placeholder="000.000.000-00" maxlength="14" required>
                 </div>
                 <div class="form-field">
                     <label>Cidade / Estado <span class="req">*</span></label>
@@ -130,6 +137,33 @@ function renderizarPasso2() {
         `;
     }
     container.innerHTML = html;
+    aplicarMascaras(container);
+}
+
+// formata enquanto digita
+function mascaraCPF(valor) {
+    const d = valor.replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 3) return d;
+    if (d.length <= 6) return `${d.slice(0,3)}.${d.slice(3)}`;
+    if (d.length <= 9) return `${d.slice(0,3)}.${d.slice(3,6)}.${d.slice(6)}`;
+    return `${d.slice(0,3)}.${d.slice(3,6)}.${d.slice(6,9)}-${d.slice(9)}`;
+}
+
+function mascaraTelefone(valor) {
+    const d = valor.replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 2) return d.length ? `(${d}` : "";
+    if (d.length <= 6) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+    if (d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+    return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+}
+
+function aplicarMascaras(container) {
+    container.querySelectorAll('[data-campo="cpf"]').forEach(el => {
+        el.addEventListener("input", () => { el.value = mascaraCPF(el.value); });
+    });
+    container.querySelectorAll('[data-campo="telefone"], [data-campo="telefone2"]').forEach(el => {
+        el.addEventListener("input", () => { el.value = mascaraTelefone(el.value); });
+    });
 }
 
 function lerPasso2() {
@@ -145,6 +179,26 @@ function lerPasso2() {
             mostrarMensagem(`Preencha os campos obrigatórios do quarto ${i + 1}.`);
             return null;
         }
+
+        // valida usando os VOs do dominio
+        try {
+            dados.nome = new Nome(dados.nome).valor;
+            dados.email = new Email(dados.email).valor;
+            const tel = new Telefone(dados.telefone);
+            dados.telefone = tel.valor;
+            dados.telefoneFormatado = tel.formatado;
+            const cpf = new CPF(dados.cpf);
+            dados.cpf = cpf.valor;
+            dados.cpfFormatado = cpf.formatado;
+            if (dados.telefone2) {
+                dados.telefone2 = new Telefone(dados.telefone2).valor;
+            }
+            dados.cidade = new CidadeUF(dados.cidade).valor;
+        } catch (e) {
+            mostrarMensagem(`Quarto ${i + 1}: ${e.message}`);
+            return null;
+        }
+
         hospedes.push(dados);
     }
     return hospedes;
@@ -194,12 +248,12 @@ function confirmarReserva() {
         nomeHospede: principal.nome,
         email: principal.email,
         telefone: principal.telefone,
-        idSuite: 1, // mock — em projeto real viria do banco/select
+        idSuite: state.disponibilidade.idSuite,
         dataEntrada: state.disponibilidade.checkin,
         dataSaida: state.disponibilidade.checkout
     };
 
-    // Garante que a suíte mock 1 exista no localStorage (para o domínio aceitar)
+    // garante que a suite escolhida exista no localStorage (pra o dominio aceitar)
     garantirSuiteMock();
 
     const resultado = ReservaController.criar(dados);
@@ -213,14 +267,15 @@ function confirmarReserva() {
 }
 
 function garantirSuiteMock() {
+    const { idSuite, suiteNome, suitePreco } = state.disponibilidade;
     const lista = JSON.parse(localStorage.getItem("suites") || "[]");
-    if (!lista.find(s => s.id === 1)) {
+    if (!lista.find(s => s.id === idSuite)) {
         lista.push({
-            id: 1,
-            nome: state.disponibilidade.suiteNome,
+            id: idSuite,
+            nome: suiteNome,
             descricao: "Suíte selecionada via fluxo de reserva",
             comodidades: [],
-            precoPorNoite: state.disponibilidade.suitePreco,
+            precoPorNoite: suitePreco,
             fotos: [],
             disponivel: true
         });

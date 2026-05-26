@@ -6,8 +6,8 @@ class PeriodoStadia{
     constructor(checkin, checkout){
         const dataCheckin = new Date(checkin + "T12:00:00")
         const dataCheckout = new Date(checkout + "T12:00:00")
-       if (dataCheckin > dataCheckout){
-        throw new Error("a data de chekin não pode ser superior a data de chekout")
+       if (dataCheckin >= dataCheckout){
+        throw new Error("a data de chekin não pode ser superior ou igual a data de chekout")
        }
        /* salva as variavei se as datas passarem */
        this.checkin = dataCheckin
@@ -16,6 +16,15 @@ class PeriodoStadia{
 
     get valido(){
         return true
+    }
+
+    /* checa se essa estadia conflita com outra (mesma suite, p.ex.)
+       checkout de uma reserva pode ser o checkin de outra (intervalo meio-aberto) */
+    sobrepoeCom(outro){
+        if (!(outro instanceof PeriodoStadia)){
+            throw new Error("sobrepoeCom espera outro PeriodoStadia")
+        }
+        return this.checkin < outro.checkout && outro.checkin < this.checkout
     }
 }
 
