@@ -179,59 +179,6 @@
     <div class="footer-bottom">Direitos reservados</div>
   </footer>
 
-  <script>
-    // ── Preencher resumo com dados do sessionStorage ──
-    function formatDate(iso) {
-      if (!iso) return '—';
-      const [y, m, d] = iso.split('-');
-      return `${d}/${m}/${y}`;
-    }
-
-    const suitePreco = parseFloat(sessionStorage.getItem('reserva_suite_preco') || '0');
-    const noites     = parseInt(sessionStorage.getItem('reserva_noites') || '0');
-    const quartos    = parseInt(sessionStorage.getItem('reserva_quartos') || '1');
-    const adultos    = parseInt(sessionStorage.getItem('reserva_adultos') || '2');
-    const total      = suitePreco * noites * quartos;
-
-    document.getElementById('resumo-suite').textContent    = sessionStorage.getItem('reserva_suite_nome') || 'Nome da Suíte Escolhida';
-    document.getElementById('resumo-hospedes').textContent = adultos;
-    document.getElementById('resumo-quartos').textContent  = quartos;
-    document.getElementById('resumo-checkin').textContent  = formatDate(sessionStorage.getItem('reserva_checkin'));
-    document.getElementById('resumo-checkout').textContent = formatDate(sessionStorage.getItem('reserva_checkout'));
-    document.getElementById('resumo-total').textContent    = total > 0
-      ? `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
-      : 'R$ 2.160,00';
-
-    // ── Seleção de forma de pagamento ──
-    let metodoSelecionado = 'pix';
-
-    document.querySelectorAll('.payment-option').forEach(opt => {
-      opt.addEventListener('click', () => {
-        document.querySelectorAll('.payment-option').forEach(o => {
-          o.classList.remove('selected');
-          o.setAttribute('aria-checked', 'false');
-        });
-        opt.classList.add('selected');
-        opt.setAttribute('aria-checked', 'true');
-        metodoSelecionado = opt.dataset.method;
-      });
-      opt.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); opt.click(); }
-      });
-    });
-
-    // ── Navegação ──
-    document.getElementById('btn-voltar').addEventListener('click', () => {
-      window.location.href = 'reservas-cadastro.html';
-    });
-
-    document.getElementById('btn-confirmar').addEventListener('click', () => {
-      sessionStorage.setItem('reserva_metodo_pagamento', metodoSelecionado);
-      // Gera número de reserva fictício
-      const numero = '#ENV-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9000) + 1000);
-      sessionStorage.setItem('reserva_numero', numero);
-      window.location.href = 'reservas.confirmacao.html';
-    });
-  </script>
+  <script type="module" src="/src/presentation/scripts/reservas-pagamentos.js"></script>
 </body>
 </html>

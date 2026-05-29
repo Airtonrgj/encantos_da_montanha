@@ -35,6 +35,16 @@ class ReservaRepository{
         return buscaReservaReidratada
     }
 
+    /* true se a suite ja tem reserva ativa que bate com o periodo (mesma suite, datas sobrepostas) */
+    temReservaNoPeriodo(idSuite, periodo){
+        const reservas = this.listarReservas()
+        return reservas.some(r =>
+            r.Suite && String(r.Suite.id) === String(idSuite) &&
+            r.status !== "cancelado" &&
+            periodo.sobrepoeCom(r.PeriodoStadia)
+        )
+    }
+
     atualizarReservas(reservaAtualizada){
         atualizarReserva(reservaAtualizada)
     }
