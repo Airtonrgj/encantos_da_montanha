@@ -1,11 +1,19 @@
+/* aceita tanto "2026-05-05" (do formulário) quanto data já salva/ISO (vinda do storage) */
+function paraData(valor){
+    if (valor instanceof Date) return valor
+    /* só a data, sem hora -> ancora no meio-dia pra não dar problema de fuso */
+    if (typeof valor === "string" && valor.length === 10) return new Date(valor + "T12:00:00")
+    return new Date(valor)
+}
+
 /* verificação para vê se o periodo cadastrado é válido ou não, facilita o trabalho de pesquisa nas APIs */
 class PeriodoStadia{
     checkin = null
     checkout = null
 
     constructor(checkin, checkout){
-        const dataCheckin = new Date(checkin + "T12:00:00")
-        const dataCheckout = new Date(checkout + "T12:00:00")
+        const dataCheckin = paraData(checkin)
+        const dataCheckout = paraData(checkout)
        if (dataCheckin >= dataCheckout){
         throw new Error("a data de chekin não pode ser superior ou igual a data de chekout")
        }
